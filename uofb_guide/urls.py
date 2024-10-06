@@ -1,8 +1,9 @@
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+import rest_framework.authtoken.views as authtoken_views
 
-from university_units.views import UnitViewSet
+# from university_units.views import UnitViewSet
 from news.views import ArticleViewSet
 from student_guide.views import GuideViewSet, WebIndex
 from college.views import AnouncementViewSet, CollegeViewSet
@@ -21,6 +22,7 @@ router.register(r'users', UserViewSet)# Users Views
 
 urlpatterns = [
     path('', WebIndex.as_view(), name="Home Page"),
+    path('get-auth/', authtoken_views.ObtainAuthToken.as_view()),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
     # path('colleges/', include('college.urls')),

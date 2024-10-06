@@ -8,6 +8,7 @@ class ChapterSerializer(ModelSerializer):
         
 
 class GuideTopicSerializer(ModelSerializer):
+    chapter = ChapterSerializer()
     class Meta:
         model = GuideTopic
         fields = '__all__'#['id', 'title', 'ar_title', 'chapter', 'created', 'updated', 'content', 'ar_content', 'image']

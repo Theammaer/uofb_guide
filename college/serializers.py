@@ -1,5 +1,7 @@
 from rest_framework.serializers import ModelSerializer
 from .models import Anouncement, College
+from django.contrib.auth.models import User
+
 
 class CollegeSerializer(ModelSerializer):
     class Meta:
@@ -8,6 +10,7 @@ class CollegeSerializer(ModelSerializer):
         
 
 class AnouncementSerializer(ModelSerializer):
+    college = CollegeSerializer()
     class Meta:
         model = Anouncement
         fields = '__all__' 

@@ -1,14 +1,9 @@
 from django.contrib import admin
-from .models import Anouncement, College, Batch
+from .models import Anouncement, College
 
 @admin.register(College)
 class CollegeAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'location']
-
-
-@admin.register(Batch)
-class BatchAdmin(admin.ModelAdmin):
-    pass
 
 
 @admin.register(Anouncement)
